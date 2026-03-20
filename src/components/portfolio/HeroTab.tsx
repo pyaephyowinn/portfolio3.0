@@ -1,0 +1,56 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Avatar } from "@/components/ui/warcraftcn/avatar";
+import { Button } from "@/components/ui/warcraftcn/button";
+
+export default function HeroTab({ onNavigate }: { onNavigate: (tab: string) => void }) {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-[70vh] gap-8 px-4 text-center">
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <Avatar
+          faction="undead"
+          size="md"
+          fallback={
+            <span className="text-4xl text-amber-400">PP</span>
+          }
+        />
+      </motion.div>
+
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+        className="space-y-4"
+      >
+        <h1 className="text-4xl md:text-6xl font-bold text-amber-400 fantasy tracking-wider">
+          Your Name
+        </h1>
+        <p className="text-lg md:text-xl text-amber-100/70 max-w-lg mx-auto">
+          Full-Stack Developer & Digital Craftsman
+        </p>
+        <p className="text-sm text-amber-100/50 max-w-md mx-auto">
+          Forging elegant solutions in the fires of code. Welcome to my realm.
+        </p>
+      </motion.div>
+
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.5 }}
+        className="flex gap-4 flex-wrap justify-center"
+      >
+        <Button variant="frame" onClick={() => onNavigate("projects")}>
+          View My Work
+        </Button>
+        <Button onClick={() => onNavigate("contact")}>
+          Get in Touch
+        </Button>
+      </motion.div>
+    </div>
+  );
+}
