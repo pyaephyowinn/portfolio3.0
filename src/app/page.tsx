@@ -1,5 +1,11 @@
 import PortfolioTabs from "@/components/portfolio/PortfolioTabs";
+import SplashScreen from "@/components/layout/SplashScreen";
 
 export default function Home() {
-  return <PortfolioTabs />;
+  return (
+    <>
+      <SplashScreen />
+      <PortfolioTabs />
+    </>
+  );
 }

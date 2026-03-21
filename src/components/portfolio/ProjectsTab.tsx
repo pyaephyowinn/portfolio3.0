@@ -17,6 +17,7 @@ import {
   TooltipTitle,
   TooltipBody,
 } from "@/components/ui/warcraftcn/tooltip";
+import { useSoundEffect } from "@/hooks/useSoundEffect";
 
 const projects = [
   {
@@ -64,6 +65,8 @@ const projects = [
 ];
 
 export default function ProjectsTab() {
+  const [playHover] = useSoundEffect("/sounds/effects/hover.mp3");
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
       <motion.h2
@@ -81,6 +84,7 @@ export default function ProjectsTab() {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: i * 0.1, duration: 0.4 }}
+            onMouseEnter={() => playHover()}
           >
             <Tooltip>
               <TooltipTrigger asChild>

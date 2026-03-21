@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cinzel } from "next/font/google";
+import { AudioProvider } from "@/components/layout/AudioProvider";
 import "./globals.css";
 
 const cinzel = Cinzel({
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${cinzel.variable} dark`}>
-      <body className="min-h-screen">{children}</body>
+      <body className="min-h-screen">
+        <AudioProvider>{children}</AudioProvider>
+      </body>
     </html>
   );
 }

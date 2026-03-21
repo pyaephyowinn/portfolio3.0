@@ -4,6 +4,9 @@ import { useState, useEffect, useCallback } from "react";
 import { Cursor } from "@/components/ui/warcraftcn/cursor";
 import BackgroundAtmosphere from "@/components/layout/BackgroundAtmosphere";
 import TabTransition from "@/components/layout/TabTransition";
+import AudioControls from "@/components/layout/AudioControls";
+import { useAudio } from "@/components/layout/AudioProvider";
+import { useSoundEffect } from "@/hooks/useSoundEffect";
 import HeroTab from "./HeroTab";
 import AboutTab from "./AboutTab";
 import ProjectsTab from "./ProjectsTab";
@@ -20,29 +23,43 @@ const TABS = [
 
 export default function PortfolioTabs() {
   const [activeTab, setActiveTab] = useState("hero");
+  const { setActiveMusic } = useAudio();
+  const [playTabSwitch] = useSoundEffect("/sounds/effects/tab-switch.mp3");
+
 
   useEffect(() => {
     const hash = window.location.hash.replace("#", "");
     if (hash && TABS.some((t) => t.id === hash)) {
       setActiveTab(hash);
+      const faction = TABS.find((t) => t.id === hash)?.faction;
+      if (faction) setActiveMusic(faction);
     }
-  }, []);
+  }, [setActiveMusic]);
 
-  const switchTab = useCallback((tabId: string) => {
-    setActiveTab(tabId);
-    window.history.pushState(null, "", `#${tabId}`);
-  }, []);
+  const switchTab = useCallback(
+    (tabId: string) => {
+      if (tabId === activeTab) return;
+      setActiveTab(tabId);
+      window.history.pushState(null, "", `#${tabId}`);
+      playTabSwitch();
+      const faction = TABS.find((t) => t.id === tabId)?.faction;
+      if (faction) setActiveMusic(faction);
+    },
+    [activeTab, playTabSwitch, setActiveMusic]
+  );
 
   useEffect(() => {
     const onHashChange = () => {
       const hash = window.location.hash.replace("#", "");
       if (hash && TABS.some((t) => t.id === hash)) {
         setActiveTab(hash);
+        const faction = TABS.find((t) => t.id === hash)?.faction;
+        if (faction) setActiveMusic(faction);
       }
     };
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
-  }, []);
+  }, [setActiveMusic]);
 
   const activeFaction = TABS.find((t) => t.id === activeTab)?.faction || "default";
 
@@ -75,6 +92,9 @@ export default function PortfolioTabs() {
                   )}
                 </button>
               ))}
+              <div className="ml-2 border-l border-amber-900/30 pl-2">
+                <AudioControls />
+              </div>
             </div>
           </div>
         </nav>

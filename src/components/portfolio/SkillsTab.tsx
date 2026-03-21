@@ -15,6 +15,7 @@ import {
   CardTitle,
   CardContent,
 } from "@/components/ui/warcraftcn/card";
+import { useSoundEffect } from "@/hooks/useSoundEffect";
 
 type Rarity = "legendary" | "epic" | "rare" | "uncommon" | "default";
 
@@ -61,6 +62,8 @@ const skillCategories: { title: string; icon: string; skills: Skill[] }[] = [
 ];
 
 export default function SkillsTab() {
+  const [playHover] = useSoundEffect("/sounds/effects/hover.mp3");
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
       <motion.h2
@@ -90,7 +93,7 @@ export default function SkillsTab() {
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
                     <Tooltip key={skill.name}>
-                      <TooltipTrigger>
+                      <TooltipTrigger onMouseEnter={() => playHover()}>
                         <Badge
                           variant={
                             skill.rarity === "legendary"

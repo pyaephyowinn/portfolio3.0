@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import { Avatar } from "@/components/ui/warcraftcn/avatar";
 import { Button } from "@/components/ui/warcraftcn/button";
+import { useSoundEffect } from "@/hooks/useSoundEffect";
 
 export default function HeroTab({ onNavigate }: { onNavigate: (tab: string) => void }) {
+  const [playClick] = useSoundEffect("/sounds/effects/click.mp3");
+
   return (
     <div className="flex flex-col items-center justify-center min-h-[70vh] gap-8 px-4 text-center">
       <motion.div
@@ -44,10 +47,21 @@ export default function HeroTab({ onNavigate }: { onNavigate: (tab: string) => v
         transition={{ delay: 0.6, duration: 0.5 }}
         className="flex gap-4 flex-wrap justify-center"
       >
-        <Button variant="frame" onClick={() => onNavigate("projects")}>
+        <Button
+          variant="frame"
+          onClick={() => {
+            playClick();
+            onNavigate("projects");
+          }}
+        >
           View My Work
         </Button>
-        <Button onClick={() => onNavigate("contact")}>
+        <Button
+          onClick={() => {
+            playClick();
+            onNavigate("contact");
+          }}
+        >
           Get in Touch
         </Button>
       </motion.div>

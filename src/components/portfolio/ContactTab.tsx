@@ -11,12 +11,16 @@ import {
 import { Input } from "@/components/ui/warcraftcn/input";
 import { Textarea } from "@/components/ui/warcraftcn/textarea";
 import { Button } from "@/components/ui/warcraftcn/button";
+import { useSoundEffect } from "@/hooks/useSoundEffect";
 
 export default function ContactTab() {
   const [submitted, setSubmitted] = useState(false);
+  const [playClick] = useSoundEffect("/sounds/effects/click.mp3");
+  const [playSuccess] = useSoundEffect("/sounds/effects/success.mp3");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    playSuccess();
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
   };
@@ -74,7 +78,11 @@ export default function ContactTab() {
                   />
                 </div>
                 <div className="flex justify-center pt-2">
-                  <Button variant="frame" type="submit">
+                  <Button
+                    variant="frame"
+                    type="submit"
+                    onClick={() => playClick()}
+                  >
                     Dispatch Scroll
                   </Button>
                 </div>
