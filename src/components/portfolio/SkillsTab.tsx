@@ -81,16 +81,16 @@ export default function SkillsTab() {
   const [playHover] = useSoundEffect("/sounds/effects/hover.mp3");
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
+    <div className="max-w-5xl mx-auto px-4 py-6">
       <motion.h2
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="text-3xl font-bold text-amber-400 fantasy mb-8 text-center"
+        className="text-2xl font-bold text-amber-400 fantasy mb-5 text-center"
       >
         Spell Book
       </motion.h2>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-4">
         {skillCategories.map((category, ci) => (
           <motion.div
             key={category.title}

@@ -26,7 +26,7 @@ export default function ContactTab() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8">
+    <div className="max-w-xl mx-auto px-4 py-6">
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -38,12 +38,12 @@ export default function ContactTab() {
               Send a Scroll
             </CardTitle>
           </CardHeader>
-          <CardContent className="pb-8">
+          <CardContent className="pb-6">
             {submitted ? (
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="text-center py-12 space-y-4"
+                className="text-center py-8 space-y-3"
               >
                 <div className="text-4xl">&#x2728;</div>
                 <p className="text-amber-400 text-xl font-bold fantasy">
@@ -54,30 +54,31 @@ export default function ContactTab() {
                 </p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <label className="text-sm text-amber-100/70 fantasy">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-sm text-amber-100/70 fantasy block">
                     Your Name
                   </label>
-                  <Input placeholder="Enter your name..." required />
+                  <Input placeholder="Enter your name..." required className="w-full" />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm text-amber-100/70 fantasy">
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-sm text-amber-100/70 fantasy block">
                     Your Email
                   </label>
-                  <Input type="email" placeholder="Enter your email..." required />
+                  <Input type="email" placeholder="Enter your email..." required className="w-full" />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm text-amber-100/70 fantasy">
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-sm text-amber-100/70 fantasy block">
                     Your Message
                   </label>
                   <Textarea
                     placeholder="Write your message here..."
-                    rows={5}
+                    rows={4}
                     required
+                    className="w-full"
                   />
                 </div>
-                <div className="flex justify-center pt-2">
+                <div className="flex justify-center pt-1">
                   <Button
                     variant="frame"
                     type="submit"
@@ -96,7 +97,7 @@ export default function ContactTab() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4 }}
-        className="mt-8 text-center space-y-2"
+        className="mt-5 text-center space-y-2"
       >
         <p className="text-amber-100/40 text-sm fantasy">
           Or find me in these realms

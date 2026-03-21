@@ -62,7 +62,7 @@ const experience = [
 
 export default function AboutTab() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 space-y-8">
+    <div className="max-w-4xl mx-auto px-4 py-6 space-y-6">
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -74,7 +74,7 @@ export default function AboutTab() {
               About the Champion
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 text-amber-100/80 pb-6">
+          <CardContent className="space-y-4 text-amber-100/80 pb-8 px-6">
             <p>
               Full Stack Developer with 3+ years of experience building scalable
               web applications using TypeScript, React, and Node.js. Experienced
@@ -93,7 +93,7 @@ export default function AboutTab() {
         </Card>
       </motion.div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {stats.map((stat, i) => (
           <motion.div
             key={stat.label}
@@ -102,8 +102,8 @@ export default function AboutTab() {
             transition={{ delay: 0.2 + i * 0.1, duration: 0.4 }}
           >
             <Card data-size="sm">
-              <CardContent className="text-center py-6">
-                <div className="text-3xl font-bold text-amber-400">
+              <CardContent className="text-center py-4">
+                <div className="text-2xl font-bold text-amber-400">
                   {stat.value}
                 </div>
                 <div className="text-xs text-amber-100/60 mt-1">
@@ -120,8 +120,8 @@ export default function AboutTab() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
-        <h3 className="text-xl text-amber-400 fantasy mb-4">Quest Log</h3>
-        <div className="space-y-4">
+        <h3 className="text-xl text-amber-400 fantasy mb-3">Quest Log</h3>
+        <div className="space-y-3">
           {experience.map((exp, i) => (
             <motion.div
               key={exp.company}
@@ -129,8 +129,8 @@ export default function AboutTab() {
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.6 + i * 0.1, duration: 0.4 }}
             >
-              <Card data-size="sm">
-                <CardContent className="py-4">
+              <Card>
+                <CardContent className="pt-8 pb-6">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 mb-2">
                     <div>
                       <span className="text-amber-400 font-bold">{exp.role}</span>

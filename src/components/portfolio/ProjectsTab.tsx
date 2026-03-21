@@ -74,16 +74,16 @@ export default function ProjectsTab() {
   const [playHover] = useSoundEffect("/sounds/effects/hover.mp3");
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
+    <div className="max-w-5xl mx-auto px-4 py-6">
       <motion.h2
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="text-3xl font-bold text-amber-400 fantasy mb-8 text-center"
+        className="text-2xl font-bold text-amber-400 fantasy mb-5 text-center"
       >
         Battle Records
       </motion.h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {projects.map((project, i) => (
           <motion.div
             key={project.title}
