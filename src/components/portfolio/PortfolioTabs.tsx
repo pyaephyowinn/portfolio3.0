@@ -112,7 +112,7 @@ export default function PortfolioTabs() {
 
         {/* Footer */}
         <footer className="text-center py-4 text-amber-100/30 text-xs fantasy border-t border-amber-900/20">
-          <p>&copy; 2026 Your Name. Forged with honor.</p>
+          <p>&copy; 2026 Pyae Phyo Win. Forged with honor.</p>
         </footer>
       </div>
     </Cursor>

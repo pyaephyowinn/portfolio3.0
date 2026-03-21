@@ -19,7 +19,7 @@ export default function HeroTab({ onNavigate }: { onNavigate: (tab: string) => v
           faction="undead"
           size="md"
           fallback={
-            <span className="text-4xl text-amber-400">PP</span>
+            <span className="text-4xl text-amber-400">PW</span>
           }
         />
       </motion.div>
@@ -31,13 +31,13 @@ export default function HeroTab({ onNavigate }: { onNavigate: (tab: string) => v
         className="space-y-4"
       >
         <h1 className="text-4xl md:text-6xl font-bold text-amber-400 fantasy tracking-wider">
-          Your Name
+          Pyae Phyo Win
         </h1>
         <p className="text-lg md:text-xl text-amber-100/70 max-w-lg mx-auto">
-          Full-Stack Developer & Digital Craftsman
+          Full Stack Developer
         </p>
         <p className="text-sm text-amber-100/50 max-w-md mx-auto">
-          Forging elegant solutions in the fires of code. Welcome to my realm.
+          3+ years building scalable web applications in fintech, travel, and AI-powered platforms. Based in Da Lat, Vietnam.
         </p>
       </motion.div>
 

@@ -10,8 +10,8 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Warcraft III",
-  description: "A Dota 1 themed portfolio",
+  title: "Pyae Phyo Win | Full Stack Developer",
+  description: "Full Stack Developer with 3+ years of experience in TypeScript, React, Node.js, and AWS.",
 };
 
 export default function RootLayout({

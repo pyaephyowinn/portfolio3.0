@@ -30,33 +30,49 @@ const skillCategories: { title: string; icon: string; skills: Skill[] }[] = [
     title: "Frontend Mastery",
     icon: "\u2694",
     skills: [
-      { name: "React", rarity: "legendary", description: "Master of component-based sorcery" },
-      { name: "Next.js", rarity: "legendary", description: "Server-side rendering champion" },
-      { name: "TypeScript", rarity: "epic", description: "Type-safe incantations" },
-      { name: "Tailwind CSS", rarity: "epic", description: "Rapid style conjuring" },
-      { name: "HTML/CSS", rarity: "rare", description: "Foundation of all web magic" },
+      { name: "React", rarity: "legendary", description: "Primary weapon \u2014 production apps at AYA Bank, KBZ, and more" },
+      { name: "Next.js", rarity: "legendary", description: "App Router, SSR, ISR \u2014 used across all recent projects" },
+      { name: "React Native", rarity: "epic", description: "Mobile app development experience" },
+      { name: "TypeScript", rarity: "legendary", description: "Type-safe code across all projects" },
+      { name: "TailwindCSS", rarity: "epic", description: "Rapid UI development \u2014 Infinity Careers, MM Trails" },
+      { name: "Zustand", rarity: "epic", description: "Replaced Redux at Infinity Careers" },
+      { name: "Redux", rarity: "rare", description: "Legacy state management experience" },
+      { name: "TanStack Query", rarity: "epic", description: "Server-state caching \u2014 Infinity Careers" },
+      { name: "Shadcn UI", rarity: "rare", description: "Component library expertise" },
     ],
   },
   {
     title: "Backend Prowess",
     icon: "\uD83D\uDEE1",
     skills: [
-      { name: "Node.js", rarity: "legendary", description: "Runtime mastery" },
-      { name: "Python", rarity: "epic", description: "Serpent tongue fluency" },
-      { name: "PostgreSQL", rarity: "epic", description: "Relational data warden" },
-      { name: "MongoDB", rarity: "rare", description: "Document realm navigator" },
-      { name: "Redis", rarity: "rare", description: "Lightning-fast cache keeper" },
+      { name: "Node.js", rarity: "legendary", description: "Backend runtime \u2014 AYA Bank, First To Fly" },
+      { name: "NestJS", rarity: "epic", description: "Enterprise APIs at KBZ Bank" },
+      { name: "Express", rarity: "epic", description: "REST API development" },
+      { name: "Hono", rarity: "rare", description: "Lightweight edge-first framework" },
+      { name: "FastAPI", rarity: "rare", description: "Python API framework" },
+      { name: "Python", rarity: "rare", description: "AI/ML integrations and scripting" },
     ],
   },
   {
-    title: "Tools & DevOps",
-    icon: "\uD83D\uDD28",
+    title: "Cloud & DevOps",
+    icon: "\u2601",
     skills: [
-      { name: "Git", rarity: "epic", description: "Version control grandmaster" },
-      { name: "Docker", rarity: "epic", description: "Container summoner" },
-      { name: "AWS", rarity: "rare", description: "Cloud realm explorer" },
-      { name: "CI/CD", rarity: "rare", description: "Automation enchantments" },
-      { name: "Linux", rarity: "uncommon", description: "Terminal warrior" },
+      { name: "AWS", rarity: "legendary", description: "EC2, Lambda, S3, SQS, API Gateway, CloudFront, ECR" },
+      { name: "Docker", rarity: "epic", description: "Containerized deployments" },
+      { name: "GitHub Actions", rarity: "epic", description: "CI/CD pipelines \u2014 First To Fly, EU Holidays" },
+      { name: "Jenkins", rarity: "rare", description: "Build automation" },
+      { name: "Monorepo", rarity: "rare", description: "Multi-package project management" },
+    ],
+  },
+  {
+    title: "Databases",
+    icon: "\uD83D\uDCBE",
+    skills: [
+      { name: "MongoDB", rarity: "epic", description: "Document DB \u2014 AYA Pay features" },
+      { name: "PostgreSQL", rarity: "epic", description: "Relational data at scale" },
+      { name: "Prisma", rarity: "rare", description: "Type-safe ORM" },
+      { name: "TypeORM", rarity: "rare", description: "ORM for NestJS projects" },
+      { name: "Drizzle", rarity: "rare", description: "Lightweight TypeScript ORM" },
     ],
   },
 ];
@@ -74,7 +90,7 @@ export default function SkillsTab() {
         Spell Book
       </motion.h2>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 gap-6">
         {skillCategories.map((category, ci) => (
           <motion.div
             key={category.title}

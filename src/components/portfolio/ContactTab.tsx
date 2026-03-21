@@ -102,14 +102,17 @@ export default function ContactTab() {
           Or find me in these realms
         </p>
         <div className="flex justify-center gap-6 text-amber-100/50">
-          <a href="#" className="hover:text-amber-400 transition-colors fantasy text-sm">
+          <a href="https://github.com/pyaephyowinn" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 transition-colors fantasy text-sm">
             GitHub
           </a>
-          <a href="#" className="hover:text-amber-400 transition-colors fantasy text-sm">
+          <a href="https://www.linkedin.com/in/pyaephyowin" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 transition-colors fantasy text-sm">
             LinkedIn
           </a>
-          <a href="#" className="hover:text-amber-400 transition-colors fantasy text-sm">
-            Twitter
+          <a href="mailto:pyaephyowin.dev@gmail.com" className="hover:text-amber-400 transition-colors fantasy text-sm">
+            Email
+          </a>
+          <a href="https://www.pyaephyowin.com" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 transition-colors fantasy text-sm">
+            Website
           </a>
         </div>
       </motion.div>

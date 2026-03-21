@@ -21,46 +21,52 @@ import { useSoundEffect } from "@/hooks/useSoundEffect";
 
 const projects = [
   {
-    title: "The Ancient Gateway",
-    description: "A full-stack e-commerce platform with real-time inventory management.",
-    tags: ["React", "Node.js", "PostgreSQL"],
+    title: "MM Trails",
+    description: "Multi-tenant content platform with custom subdomains. Leveraged AI-assisted development workflows.",
+    tags: ["Next.js", "TypeScript", "AI"],
     rarity: "legendary" as const,
-    link: "#",
+    link: "https://www.mmtrails.com/",
+    type: "Personal",
   },
   {
-    title: "Shadow Weaver",
-    description: "AI-powered content generation tool with natural language processing.",
-    tags: ["Python", "FastAPI", "OpenAI"],
+    title: "EU Holidays",
+    description: "Flight and hotel booking flows integrating NDC and FIT APIs. Zero-downtime CI/CD with blue-green deployment.",
+    tags: ["Next.js", "Node.js", "AWS EC2", "Nginx"],
+    rarity: "legendary" as const,
+    link: "https://flights-hotels.euholidays.com.sg/",
+    type: "First To Fly",
+  },
+  {
+    title: "Infinity Careers",
+    description: "Led frontend migration to Next.js 14 App Router. Replaced Redux with Zustand and TanStack Query.",
+    tags: ["Next.js 14", "TypeScript", "TailwindCSS", "Zustand"],
     rarity: "epic" as const,
-    link: "#",
+    link: "https://www.infinitycareers.com.mm/",
+    type: "Infinity Global Solutions",
   },
   {
-    title: "Iron Forge Dashboard",
-    description: "Real-time analytics dashboard for monitoring cloud infrastructure.",
-    tags: ["Next.js", "D3.js", "AWS"],
+    title: "AYA iBanking",
+    description: "Secure authentication flows, session handling, and protected route architecture for internet banking.",
+    tags: ["Next.js", "SWR", "Zustand", "Node.js"],
+    rarity: "epic" as const,
+    link: "https://www.ayaibanking.com/",
+    type: "AYA Bank",
+  },
+  {
+    title: "AYA Pay Mini-Apps",
+    description: "Customer-facing BNPL, Pocket Money, and Credit Card features for AYA Pay super app.",
+    tags: ["React", "Node.js", "MongoDB"],
     rarity: "rare" as const,
     link: "#",
+    type: "AYA Bank",
   },
   {
-    title: "Scroll of Records",
-    description: "Document management system with version control and collaboration.",
-    tags: ["TypeScript", "MongoDB", "WebSocket"],
-    rarity: "epic" as const,
-    link: "#",
-  },
-  {
-    title: "Battle Arena",
-    description: "Multiplayer game lobby system with matchmaking and ranking.",
-    tags: ["Go", "Redis", "gRPC"],
-    rarity: "legendary" as const,
-    link: "#",
-  },
-  {
-    title: "Crystal Ball",
-    description: "Data visualization tool for financial market predictions.",
-    tags: ["React", "TensorFlow", "Flask"],
+    title: "KBZ Enterprise Apps",
+    description: "Internal enterprise web applications supporting cross-department operations with cloud-native services.",
+    tags: ["React", "NestJS", "AWS Lambda", "AppSync"],
     rarity: "rare" as const,
     link: "#",
+    type: "KBZ Bank",
   },
 ];
 
@@ -88,7 +94,12 @@ export default function ProjectsTab() {
           >
             <Tooltip>
               <TooltipTrigger asChild>
-                <a href={project.link} className="block h-full">
+                <a
+                  href={project.link}
+                  target={project.link !== "#" ? "_blank" : undefined}
+                  rel={project.link !== "#" ? "noopener noreferrer" : undefined}
+                  className="block h-full"
+                >
                   <Card data-size="sm" className="h-full hover:brightness-110 transition-all duration-200">
                     <CardHeader>
                       <CardTitle className="text-amber-400">
@@ -107,13 +118,14 @@ export default function ProjectsTab() {
                         ))}
                       </div>
                     </CardContent>
-                    <CardFooter>
+                    <CardFooter className="justify-between">
                       <Badge
                         variant={project.rarity === "legendary" ? "destructive" : "secondary"}
                         size="sm"
                       >
                         {project.rarity.toUpperCase()}
                       </Badge>
+                      <span className="text-amber-100/40 text-xs fantasy">{project.type}</span>
                     </CardFooter>
                   </Card>
                 </a>
