@@ -59,8 +59,6 @@ export default function PortfolioTabs() {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, [setActiveMusic]);
 
-  const activeFaction = TABS.find((t) => t.id === activeTab)?.faction || "default";
-
   return (
     <Cursor faction="undead">
       <BackgroundAtmosphere activeTab={activeTab} />
