@@ -52,7 +52,7 @@ export default function ContactTab() {
   };
 
   return (
-    <div className="max-w-xl mx-auto px-4 py-6">
+    <div className="max-w-xl mx-auto px-4 min-h-[calc(100vh-120px)] flex flex-col justify-center">
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

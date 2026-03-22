@@ -94,12 +94,7 @@ export default function ProjectsTab() {
           >
             <Tooltip>
               <TooltipTrigger asChild>
-                <a
-                  href={project.link}
-                  target={project.link !== "#" ? "_blank" : undefined}
-                  rel={project.link !== "#" ? "noopener noreferrer" : undefined}
-                  className="block h-full"
-                >
+                <div className="h-full">
                   <Card data-size="sm" className="h-full hover:brightness-110 transition-all duration-200">
                     <CardHeader>
                       <CardTitle className="text-amber-400">
@@ -118,17 +113,30 @@ export default function ProjectsTab() {
                         ))}
                       </div>
                     </CardContent>
-                    <CardFooter className="justify-between">
-                      <Badge
-                        variant={project.rarity === "legendary" ? "destructive" : "secondary"}
-                        size="sm"
-                      >
-                        {project.rarity.toUpperCase()}
-                      </Badge>
+                    <CardFooter className="flex-col items-start gap-2 mt-auto">
+                      <div className="flex items-center justify-between w-full">
+                        <Badge
+                          variant={project.rarity === "legendary" ? "destructive" : "secondary"}
+                          size="sm"
+                        >
+                          {project.rarity.toUpperCase()}
+                        </Badge>
+                        {project.link !== "#" && (
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-amber-400/60 text-xs fantasy hover:text-amber-400 transition-colors flex items-center gap-1"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            Visit &rarr;
+                          </a>
+                        )}
+                      </div>
                       <span className="text-amber-100/40 text-xs fantasy">{project.type}</span>
                     </CardFooter>
                   </Card>
-                </a>
+                </div>
               </TooltipTrigger>
               <TooltipContent variant={project.rarity}>
                 <TooltipTitle>{project.title}</TooltipTitle>

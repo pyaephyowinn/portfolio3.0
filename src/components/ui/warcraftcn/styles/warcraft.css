@@ -522,23 +522,14 @@
    ============================================ */
 
 .wc-orc-cursor,
-.wc-orc-cursor * {
-  cursor: url("/orc.cur"), auto;
-}
-
+.wc-orc-cursor *,
 .wc-human-cursor,
-.wc-human-cursor * {
-  cursor: url("/human.cur"), auto;
-}
-
+.wc-human-cursor *,
 .wc-elf-cursor,
-.wc-elf-cursor * {
-  cursor: url("/elf.cur"), auto;
-}
-
+.wc-elf-cursor *,
 .wc-undead-cursor,
 .wc-undead-cursor * {
-  cursor: url("/undead.cur"), auto;
+  cursor: inherit;
 }
 
 /* checkbox.css */
