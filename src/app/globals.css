@@ -18,6 +18,11 @@ body {
   color: var(--foreground);
   font-family: "Cinzel", serif;
   overflow-x: hidden;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='32' viewBox='0 0 24 32'%3E%3Cpath d='M2 2L2 26L7 21L12 28L16 26L11 19L18 19Z' fill='%236B21A8' stroke='%23D4A853' stroke-width='1.5'/%3E%3C/svg%3E") 2 2, auto;
+}
+
+a, button, [role="button"], input[type="submit"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='32' viewBox='0 0 24 32'%3E%3Cpath d='M2 2L2 26L7 21L12 28L16 26L11 19L18 19Z' fill='%239333EA' stroke='%23FBBF24' stroke-width='1.5'/%3E%3C/svg%3E") 2 2, pointer;
 }
 
 /* Gold particle ambiance */

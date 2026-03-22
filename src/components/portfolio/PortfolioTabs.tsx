@@ -62,7 +62,7 @@ export default function PortfolioTabs() {
   const activeFaction = TABS.find((t) => t.id === activeTab)?.faction || "default";
 
   return (
-    <Cursor faction={activeFaction}>
+    <Cursor faction="undead">
       <BackgroundAtmosphere activeTab={activeTab} />
 
       <div className="min-h-screen flex flex-col">
