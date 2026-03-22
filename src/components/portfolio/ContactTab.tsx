@@ -15,14 +15,40 @@ import { useSoundEffect } from "@/hooks/useSoundEffect";
 
 export default function ContactTab() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const [playClick] = useSoundEffect("/sounds/effects/click.mp3");
   const [playSuccess] = useSoundEffect("/sounds/effects/success.mp3");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    playSuccess();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    setSending(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    formData.append("access_key", process.env.NEXT_PUBLIC_FORM_ACCESS_KEY || "");
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        playSuccess();
+        setSubmitted(true);
+        form.reset();
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        setError("Failed to send. Please try again.");
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -59,32 +85,37 @@ export default function ContactTab() {
                   <label className="text-sm text-amber-100/70 fantasy block">
                     Your Name
                   </label>
-                  <Input placeholder="Enter your name..." required className="w-full" />
+                  <Input name="name" placeholder="Enter your name..." required className="w-full" />
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm text-amber-100/70 fantasy block">
                     Your Email
                   </label>
-                  <Input type="email" placeholder="Enter your email..." required className="w-full" />
+                  <Input name="email" type="email" placeholder="Enter your email..." required className="w-full" />
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm text-amber-100/70 fantasy block">
                     Your Message
                   </label>
                   <Textarea
+                    name="message"
                     placeholder="Write your message here..."
                     rows={4}
                     required
                     className="w-full"
                   />
                 </div>
+                {error && (
+                  <p className="text-red-400 text-sm text-center fantasy">{error}</p>
+                )}
                 <div className="flex justify-center pt-1">
                   <Button
                     variant="frame"
                     type="submit"
+                    disabled={sending}
                     onClick={() => playClick()}
                   >
-                    Dispatch Scroll
+                    {sending ? "Sending..." : "Dispatch Scroll"}
                   </Button>
                 </div>
               </form>
