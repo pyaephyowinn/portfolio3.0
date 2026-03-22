@@ -12,9 +12,9 @@ import { useSoundEffect } from "@/hooks/useSoundEffect";
 
 const stats = [
   { label: "Years of Experience", value: "3+" },
-  { label: "Companies Served", value: "4" },
-  { label: "Technologies", value: "20+" },
-  { label: "First Class Honours", value: "BSc" },
+  { label: "Dota 2 MMR", value: "4K+" },
+  { label: "Git Commits", value: "999+" },
+  { label: "Sleepless Nights", value: "∞" },
 ];
 
 export default function HeroTab({ onNavigate }: { onNavigate: (tab: string) => void }) {
