@@ -8,14 +8,12 @@ import AudioControls from "@/components/layout/AudioControls";
 import { useAudio } from "@/components/layout/AudioProvider";
 import { useSoundEffect } from "@/hooks/useSoundEffect";
 import HeroTab from "./HeroTab";
-import AboutTab from "./AboutTab";
 import ProjectsTab from "./ProjectsTab";
 import SkillsTab from "./SkillsTab";
 import ContactTab from "./ContactTab";
 
 const TABS = [
   { id: "hero", label: "Home", faction: "undead" as const },
-  { id: "about", label: "About", faction: "human" as const },
   { id: "projects", label: "Projects", faction: "orc" as const },
   { id: "skills", label: "Skills", faction: "elf" as const },
   { id: "contact", label: "Contact", faction: "undead" as const },
@@ -103,7 +101,6 @@ export default function PortfolioTabs() {
         <main className="flex-1">
           <TabTransition activeKey={activeTab}>
             {activeTab === "hero" && <HeroTab onNavigate={switchTab} />}
-            {activeTab === "about" && <AboutTab />}
             {activeTab === "projects" && <ProjectsTab />}
             {activeTab === "skills" && <SkillsTab />}
             {activeTab === "contact" && <ContactTab />}
