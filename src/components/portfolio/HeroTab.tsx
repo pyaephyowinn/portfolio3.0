@@ -21,7 +21,7 @@ export default function HeroTab({ onNavigate }: { onNavigate: (tab: string) => v
   const [playClick] = useSoundEffect("/sounds/effects/click.mp3");
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-10 space-y-8">
+    <div className="max-w-4xl mx-auto px-4 py-10 space-y-8 min-h-[calc(100vh-120px)] flex flex-col justify-center">
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -43,11 +43,11 @@ export default function HeroTab({ onNavigate }: { onNavigate: (tab: string) => v
       >
         <Card>
           <CardHeader>
-            <CardTitle className="text-2xl text-amber-400">
+            <CardTitle className="text-2xl text-amber-400 md:px-6">
               About the Champion
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 text-amber-100/80 pb-8 px-6">
+          <CardContent className="text-amber-100/80 pb-8 px-6 md:px-12">
             <p>
               Full Stack Developer with 3+ years of experience building scalable
               web applications using TypeScript, React, and Node.js. Experienced
@@ -55,12 +55,6 @@ export default function HeroTab({ onNavigate }: { onNavigate: (tab: string) => v
               AI-powered platforms. Skilled in cloud-native architecture on AWS
               and implementing AI integrations including Retrieval-Augmented
               Generation (RAG).
-            </p>
-            <p>
-              Graduated with First Class Honours in BSc Computing from the
-              University of Greenwich. Participated in ICPC Asia-Yangon 2018 and
-              MCPC Yangon 2019 during studies at the University of Computer
-              Studies, Myeik.
             </p>
           </CardContent>
         </Card>
