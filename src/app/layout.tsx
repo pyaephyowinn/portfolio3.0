@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cinzel } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import { AudioProvider } from "@/components/layout/AudioProvider";
 import "./globals.css";
 
@@ -59,6 +60,7 @@ export default function RootLayout({
     <html lang="en" className={`${cinzel.variable} dark`}>
       <body className="min-h-screen">
         <AudioProvider>{children}</AudioProvider>
+        <Analytics />
       </body>
     </html>
   );
