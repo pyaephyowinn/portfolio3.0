@@ -5,6 +5,7 @@ import { Cursor } from "@/components/ui/warcraftcn/cursor";
 import BackgroundAtmosphere from "@/components/layout/BackgroundAtmosphere";
 import TabTransition from "@/components/layout/TabTransition";
 import AudioControls from "@/components/layout/AudioControls";
+import { track } from "@vercel/analytics";
 import { useAudio } from "@/components/layout/AudioProvider";
 import { useSoundEffect } from "@/hooks/useSoundEffect";
 import HeroTab from "./HeroTab";
@@ -39,6 +40,7 @@ export default function PortfolioTabs() {
       if (tabId === activeTab) return;
       setActiveTab(tabId);
       window.history.pushState(null, "", `#${tabId}`);
+      track("tab-view", { tab: tabId });
       playTabSwitch();
       const faction = TABS.find((t) => t.id === tabId)?.faction;
       if (faction) setActiveMusic(faction);
